@@ -20,7 +20,7 @@ class _FaceBookState extends State<FaceBook> {
           children: [
 
             Container(
-              height: 250,
+              height: 220,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.black26,
@@ -147,9 +147,9 @@ class _FaceBookState extends State<FaceBook> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        buildContainer2(),
-                        buildContainer2(),
-                        buildContainer2(),
+                        buildContainer2(Icons.camera_alt ,Colors.green ,"Fotos"),
+                        buildContainer2(Icons.video_call ,Colors.red , 'En vivo'),
+                        Expanded(child: buildContainer2(Icons.remove_red_eye ,Colors.blue ,"Video corto")),
 
                       ],
                     )
@@ -203,13 +203,13 @@ class _FaceBookState extends State<FaceBook> {
                       child: ListView(
                        scrollDirection: Axis.horizontal,
                         children: [
-                          buildContainer(),
+                          buildContainer(Icons.question_answer ,Colors.green ,'Ayuda y soports'),
                           SizedBox(width: 20,),
-                          buildContainer(),
+                          buildContainer(Icons.settings ,Colors.blue ,'configuracion y privacidad'),
                           SizedBox(width: 20,),
-                          buildContainer(),
+                          buildContainer(Icons.settings ,Colors.blue ,'configuracion y privacidad'),
                           SizedBox(width: 20,),
-                          buildContainer(),
+                          buildContainer(Icons.settings ,Colors.blue ,'configuracion y privacidad'),
                         ],
                       ),
                     ),
@@ -316,44 +316,42 @@ class _FaceBookState extends State<FaceBook> {
     );
   }
 
-  Container buildContainer2() {
+  Container buildContainer2( IconData iconData ,Color colorIcon , String text) {
     return Container(
                         height: 35,
-                        width: 125,
+                        width: 110,
                         decoration: BoxDecoration(
                             color: Colors.black26,
                             borderRadius: BorderRadius.circular(10)
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(10),
-                          child: Center(
-                            child: Row(
-                              children: [
-                                Icon(Icons.camera_alt ,color: Colors.brown,size: 20,),
-                                SizedBox(width: 10,),
-                                Text('aws' ,style: TextStyle(color: Colors.white),)],
-                            ),
+                          child: Row(
+                            children: [
+                              Icon(iconData ,color: colorIcon,size: 20,),
+                              SizedBox(width: 10,),
+                              Text(text ,style: TextStyle(color: Colors.white),)],
                           ),
                         ),
                       );
   }
 
-  Container buildContainer() {
+  Container buildContainer( IconData iconData ,Color color , String text) {
     return Container(
 
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white10
                         ),
-                        width: 150,
+                        width: 180,
                         height: 50,
                         child: Padding(
                           padding: const EdgeInsets.all(10),
                           child: Row(
                             children: [
-                              Icon(Icons.question_answer ,color: Colors.green,),
+                              Icon(iconData ,color: color),
                               SizedBox(width: 10,),
-                              Text('Hello' ,style: TextStyle(color: Colors.white),)
+                              Text(text ,style: TextStyle(color: Colors.white ,fontSize:10),)
                             ],
                           ),
                         ),
